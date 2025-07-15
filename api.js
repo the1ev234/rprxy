@@ -4,7 +4,7 @@ var parser = require('cheerio');
 var router = express.Router();
 
 router.get('/api/searchmusic/:music', function (req, res, next) {
-  https.get('https://search.roblox.com/catalog/json?Category=9&Keyword=' + encodeURI(req.params.music), function (search) {
+  https.get('https://pekora.zip/catalog/json?Category=9&Keyword=' + encodeURI(req.params.music), function (search) {
     search.pipe(res);
   });
 });
@@ -15,7 +15,7 @@ router.get('/api/usernames/:userId*?', function (req, res, next) {
     res.end('Parameter userId is required.');
     return;
   }
-  https.get('https://www.roblox.com/users/' + encodeURI(userId) + '/profile', function (user) {
+  https.get('https://www.pekora.zip/users/' + encodeURI(userId) + '/profile', function (user) {
     if (user.statusCode !== 200) {
       res.end('Request failed, make sure the userId is valid');
     }
